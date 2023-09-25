@@ -155,12 +155,12 @@ switch ((int) myDate.DayOfWeek)
 string output = myDate.Day switch
 {
     Day.First => "1st",
-    Day.Second => "2nd",
-    Day.Third => "3rd",
-    _ => "Error",
+    Day.Second => "2nd of " + myDate.Month.ToString(),
+    Day.Third => "3rd", // Skip case: word. use =>
+    _ => "Error", // _ instead of default
 };
-Console.WriteLine(output);
 
+Console.WriteLine(output);
 /*
 Console.WriteLine(myDate.Day switch
 {
@@ -170,3 +170,4 @@ Console.WriteLine(myDate.Day switch
     _ => "Error",
 });
 */
+
