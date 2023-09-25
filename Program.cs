@@ -53,14 +53,36 @@ Console.WriteLine((int) andrew.HairColour);
 // 63.66666636666
 // 0
 
+long one = -523526326269;
+decimal two = 63.66666636666m;
+bool three = false;
+
 // +, -, *, / The varaibles.
 // Printing the answer.
 // Check the answer to see if its correct.
+
+// Casting is (DataType). Forces dataType change
+long oneXtwo = (long) (two * one);
+Console.WriteLine(one * two); // double  -33331175948731.61194379154
+Console.WriteLine(oneXtwo);   // long      -33331175948731
+
+myNumber = 58235;
+long interger = myNumber;
+Console.WriteLine(interger);
+
+// Console.WriteLine(one + (int)three); // Some data types cant be mathed. Char
 
 // Date Struct
 // - DayEnum
 // - MonthEnum
 // - Year number
+
+
+Date ds = new Date(Day.Second, Month.April, 2023);
+Console.WriteLine(ds);
+Console.WriteLine(ds.Year);
+Console.WriteLine(ds.Month);
+Console.WriteLine(ds.Day);
 
 // Create the date struct and print it. 
 // Access it's properites
@@ -71,3 +93,8 @@ Console.WriteLine((int) andrew.HairColour);
 //  - balance
 //  - account name
 //  - account id
+BankAccount ba = new BankAccount(5235.25, "Savings?!", 432, new Date(Day.Fourth, Month.April, 2002));
+Console.WriteLine(ba.DateCreated.Year);
+Console.WriteLine(ba.DateCreated.Month);
+Console.WriteLine(ba.AccountName);
+Console.WriteLine(ba.Balance);
