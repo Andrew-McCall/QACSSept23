@@ -1,100 +1,109 @@
-﻿Console.WriteLine("Hello, hrhrWorld!");
+﻿// >  Greater
+// <  Lesser
+// == Equal
+// != Not Equal
+// >= Greater OR Equal
+// <= Lesser OR Equal
 
-// Comment is not ran. This is just text for the developer
-// Console.WriteLine("Hello, hrhrWorld!");
+// && AND 
+// || OR
 
-/* 
-    multilined
-    commenet
- */
+// !  Make a true = false, false = true
 
-// Variables (mutable data stores)
-// DataType Idtentifer = Value;
+bool logic = true;
 
-/// Value Types
-int myNumber = 0; // +-2.1 billion 32bit (signed)
-Console.WriteLine(myNumber);
+if (logic)
+{
+    Console.WriteLine("Hello World!");
+}
 
-long myLong = 0; // +-9 septillion 64bit (signed)
-ulong myULong = 0; // 18 septillion 64bit
-sbyte myByte = -127; // -128 to 127
+if (1 > 0)
+{
+    Console.WriteLine("One is greater than 0");
+}
 
-float myFloat = 09.532f;        // 32 bit
-double myDouble = 9532.523d;    // 64 bit
-decimal myDecimal = 9532.523m;  // 128 bit
+if (0 == 0)
+{
+    Console.WriteLine("Cat");
+}
 
-char myChar = '\0';     // 16 bit unicode
-bool myBoolean = false; // 1 bit
+if (1 != 0)
+{
+    Console.WriteLine("Dog");
+}
 
-/// ? makes it nullable
-bool? myBool = null;
-myBool = true;          // mutable bool gets changed
+logic = true;
 
-// .Net API Reference
-System.Int32 myNumberCopy = myNumber; 
+if (!logic) // false
+{
+    Console.WriteLine("Hampster");
+}
+else
+{
+    Console.WriteLine("Guinea Pig!");
+}
 
+if (logic)
+{
+    Console.WriteLine("andrew");
+} else
+{
+    Console.WriteLine("McCall");
+}
 
-/// Reference Type
-// Structs, Enums, Class e.g String
-string myString = "HEllo World";
-string myString2 = null;        // All ref types can be null
+int age = 65;
+bool hasRetired = false;
 
-HairColour hairColour = HairColour.Platinum; // Conditional Logic
+if (age < 18) // 18 < 18 == FALSE
+{
+    Console.WriteLine("Child");
+}
+else if (age <= 65 && !hasRetired) // AND is only true if both sides are true
+{
+    Console.WriteLine("Adult");
+}
+else
+{
+    Console.WriteLine("Retired");
+}
 
-Person andrew = new Person(20, "Andrew");
-// andrew.age = 21;  Read only struct
-Console.WriteLine(andrew.Age);
-Console.WriteLine(andrew.Name);
-Console.WriteLine(andrew.HairColour);
-Console.WriteLine((int) andrew.HairColour);
+if (hasRetired || !hasRetired)  // OR is true if at least one side is true
+{
+    Console.WriteLine("Question?!");
+}
 
-// Create 3 efficent variables
-// -523526326269
-// 63.66666636666
-// 0
+// XOR age > 65 |X| hasRetired true
+if (age > 65 && !hasRetired || age <= 65 && hasRetired)
+{
 
-long one = -523526326269;
-decimal two = 63.66666636666m;
-bool three = false;
+}
 
-// +, -, *, / The varaibles.
-// Printing the answer.
-// Check the answer to see if its correct.
+if ( !(age > 10)) // (age > 10) == false
+{
+    Console.WriteLine("Here?");
+}
 
-// Casting is (DataType). Forces dataType change
-long oneXtwo = (long) (two * one);
-Console.WriteLine(one * two); // double  -33331175948731.61194379154
-Console.WriteLine(oneXtwo);   // long      -33331175948731
+// Create a Date (Variable)
+/// Print which holiday day that date is
+// e.g if Date.Day == Day.Sunday -> "Weekend!"
+// Christmas
+// You Birthday
+// Summer Holiday Start
+// Your birthday DAY with the correct year
 
-myNumber = 58235;
-long interger = myNumber;
-Console.WriteLine(interger);
+Date myDate = new Date(Day.TwentyFifth, Month.June, 2023, DayOfWeek.Sunday);
 
-// Console.WriteLine(one + (int)three); // Some data types cant be mathed. Char
-
-// Date Struct
-// - DayEnum
-// - MonthEnum
-// - Year number
-
-
-Date ds = new Date(Day.Second, Month.April, 2023);
-Console.WriteLine(ds);
-Console.WriteLine(ds.Year);
-Console.WriteLine(ds.Month);
-Console.WriteLine(ds.Day);
-
-// Create the date struct and print it. 
-// Access it's properites
-
-// Ext
-// BankAccount Struct
-//  - Date Struct
-//  - balance
-//  - account name
-//  - account id
-BankAccount ba = new BankAccount(5235.25, "Savings?!", 432, new Date(Day.Fourth, Month.April, 2002));
-Console.WriteLine(ba.DateCreated.Year);
-Console.WriteLine(ba.DateCreated.Month);
-Console.WriteLine(ba.AccountName);
-Console.WriteLine(ba.Balance);
+if (  (myDate.Day == Day.Thirtieth && myDate.Month == Month.September) || (myDate.Day == Day.First && myDate.Month == Month.October))
+{
+    Console.WriteLine("This Weekend!");
+} else if ( myDate.Day == Day.TwentyFifth && myDate.Month == Month.December)
+{
+    Console.WriteLine("birth of sir issac newton");
+}
+else if(myDate.DayOfWeek == DayOfWeek.Sunday || myDate.DayOfWeek == DayOfWeek.Saturday)
+{
+    Console.WriteLine("WEEK END!!");
+}else
+{
+    Console.WriteLine("Nothing SEpcial");
+}
