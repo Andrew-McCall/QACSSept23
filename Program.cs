@@ -171,3 +171,11 @@ Console.WriteLine(myDate.Day switch
 });
 */
 
+// Create an enum of counrties
+// Create a switch case that prints the capital of country variable
+// Create a switch expression that turns the capital into its population. Hint: "float population = myCountry switch {..."
+// Create a number variable
+// Use switches to turn that number into english
+// 1 => "One"
+// EXT
+// 1952 => "one thousand, nine-hundred fifty-two"
