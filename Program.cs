@@ -174,8 +174,80 @@ Console.WriteLine(myDate.Day switch
 // Create an enum of counrties
 // Create a switch case that prints the capital of country variable
 // Create a switch expression that turns the capital into its population. Hint: "float population = myCountry switch {..."
+
+// EXT 1
 // Create a number variable
 // Use switches to turn that number into english
 // 1 => "One"
-// EXT
+
+// EXT 2
 // 1952 => "one thousand, nine-hundred fifty-two"
+
+Country selectedCountry = Country.Spain;
+
+switch (selectedCountry)
+{
+
+    case Country.Spain:
+        Console.WriteLine("Madrid");
+        break;
+
+    case Country.Sweeden:
+        Console.WriteLine("Stockholm");
+        break;
+
+    case Country.France:
+        Console.WriteLine("Paris");
+        break;
+
+    case Country.UnitedKingdom:
+        Console.WriteLine("London");
+        break;
+
+    default:
+        Console.WriteLine("UNKOWN COUNRTY EWROROR!");
+        break;
+}
+
+float population = selectedCountry switch
+{
+    Country.UnitedKingdom => 80.0f,
+    Country.Sweeden => 9.0f,
+    Country.Spain => 50,
+    Country.France => 76.52f,
+    _=> -1 // Throw 
+};
+
+Console.WriteLine(population);
+
+int myNumber = 5;
+
+/*
+string numberAsEnglish = "";
+
+// 3 remainder of 1
+// 19%6 = 1, 36%6 = 0, 15%6 = 3, 100%7=2
+switch (myNumber % 10) { // get the last digit
+
+    case 1:
+        numberAsEnglish += "One";
+        break;
+
+    case 2:
+        numberAsEnglish += "Two";
+        break;
+
+    case 3:
+        numberAsEnglish += "Three";
+        break;
+       
+}*/
+
+string numberAsEnglish = (myNumber % 10) switch
+{
+    1 => "One",
+    2 => "Two",
+    3 => "Three",
+    4 => "Four",
+    5 => "Five",
+};
