@@ -91,7 +91,7 @@ if ( !(age > 10)) // (age > 10) == false
 // Summer Holiday Start
 // Your birthday DAY with the correct year
 
-Date myDate = new Date(Day.TwentyFifth, Month.June, 2023, DayOfWeek.Sunday);
+Date myDate = new Date(Day.Second, Month.June, 2023, DayOfWeek.Friday);
 
 if (  (myDate.Day == Day.Thirtieth && myDate.Month == Month.September) || (myDate.Day == Day.First && myDate.Month == Month.October))
 {
@@ -107,3 +107,66 @@ else if(myDate.DayOfWeek == DayOfWeek.Sunday || myDate.DayOfWeek == DayOfWeek.Sa
 {
     Console.WriteLine("Nothing SEpcial");
 }
+
+switch (myDate.DayOfWeek)
+{
+
+    case DayOfWeek.Monday:
+        Console.WriteLine("Booo!");
+        break;
+
+    case DayOfWeek.Sunday:
+    case DayOfWeek.Saturday:
+        Console.WriteLine("Weekend Woop!");
+        break;
+
+    case DayOfWeek.Tuesday:
+        Console.WriteLine("Tommorrow!");
+        break;
+
+    default:
+        Console.WriteLine("Unknown Day?!");
+        break;
+
+}
+
+switch ((int) myDate.DayOfWeek)
+{
+
+    case 1:
+        Console.WriteLine("Booo!");
+        break;
+
+    case 0:
+    case 6:
+        Console.WriteLine("Weekend Woop!");
+        break;
+
+    case 2:
+        Console.WriteLine("Tommorrow!");
+        break;
+
+    case >= 3: // (int) myDate.DayOfWeek >= 3
+        Console.WriteLine("Weekday");
+        break;
+
+}
+
+string output = myDate.Day switch
+{
+    Day.First => "1st",
+    Day.Second => "2nd",
+    Day.Third => "3rd",
+    _ => "Error",
+};
+Console.WriteLine(output);
+
+/*
+Console.WriteLine(myDate.Day switch
+{
+    Day.First => "1st",
+    Day.Second => "2nd",
+    Day.Third => "3rd",
+    _ => "Error",
+});
+*/

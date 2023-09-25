@@ -4,8 +4,8 @@ public readonly struct Date
     public Day Day { get; init; }
     public Month Month { get; init; }
     public int Year { get; init; }
-    public DayOfWeek DayOfWeek { get; init; }
-
+    public System.DayOfWeek DayOfWeek { get; init; }
+   
     public Date (Day Day, Month month, int year, DayOfWeek DayOfWeek)
     {
         // Calc at run time
