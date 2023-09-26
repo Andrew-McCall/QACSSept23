@@ -63,9 +63,24 @@ for (int i = 0; i < 50; i++)
 // there are 99 green bottle on the wall and if one were to fall, there would be 98 bottles on the wall.
 // no negative print outs
 
+for (int i = 99; i > 0; i--)
+{
+    // $"hello {nameVar}" = "hello "+nameVar
+    if (i == 1)
+    {
+        Console.WriteLine($"There is 1 green bottle on the wall, And if that one were to fall, Then there would be no more bottles on the wall.");
+    }
+    else
+    {
+        Console.WriteLine($"There are {i} green bottles on the wall, And if one were to fall, Then there would be {i - 1} greens bottles on the wall.");
+    }
+}
+
+/*
 for (int i = 99; i >= 2; i--)
 {
     // $"hello {nameVar}" = "hello "+nameVar
     Console.WriteLine($"There are {i} green bottles on the wall, And if one were to fall, Then there would be {i - 1} greens bottles on the wall.");
 };
 Console.WriteLine($"There is 1 green bottle on the wall, And if that one were to fall, Then there would be no more bottles on the wall.");
+*/
