@@ -2,6 +2,11 @@
 //using ConsoleApp3; // import everything that is in said namespace
 // this file is in a "top-level namespace"
 
+// Overloading
+// Manual Implentation
+// Private vs Public
+// Main Method
+
 // Typically the name of your project. 
 namespace ConsoleApp3
 {
