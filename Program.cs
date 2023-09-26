@@ -15,16 +15,17 @@ namespace ConsoleApp3
         // Default Method/Entry Point
         public static void Main(string[] args)
         {
+            /*
             Console.WriteLine("Hello world");
 
             Car carOne = new Car("Leaf", "Nissan", "ABC");
 
             Console.WriteLine(carOne.Reg);
-            Console.WriteLine(carOne.GetSpeed());
+            Console.WriteLine(carOne.Speed);
 
             carOne.Accelerate(7);
 
-            Console.WriteLine(carOne.GetSpeed());
+            Console.WriteLine(carOne.Speed);
 
             Car carTwo = new Car("Leaf", "Nissan", "DFE");
             Car carThree = new Car("F150", "Ford", "123");
@@ -35,21 +36,21 @@ namespace ConsoleApp3
             carThree.Accelerate(451);
             carThree.Accelerate(124);
 
-            Console.WriteLine(carTwo.GetSpeed());
-            Console.WriteLine(carThree.GetSpeed());
+            Console.WriteLine(carTwo.Speed);
+            Console.WriteLine(carThree.Speed);
 
             carThree.EmergencyBrake();
 
-            Console.WriteLine(carThree.GetSpeed());
+            Console.WriteLine(carThree.Speed);
 
             Console.WriteLine(carTwo.Accelerate(52));
             Console.WriteLine(carTwo.Accelerate(532));
-            Console.WriteLine(carTwo.GetSpeed());
+            Console.WriteLine(carTwo.Speed);
 
             Car carFour = new Car("abc");
             Console.WriteLine(carFour.Reg);
             Console.WriteLine(carFour.Make);
-            Console.WriteLine(carFour.GetSpeed());
+            Console.WriteLine(carFour.Speed);
             Console.WriteLine(carFour.Model);
 
             carFour.Accelerate(7);
@@ -57,7 +58,25 @@ namespace ConsoleApp3
             carFour.Accelerate(7);
 
 
-            // carFour.GetSpeed() = 523;
+            // carFour.Speed = 523;
+            */
+
+            Car car = new Car("123");
+            car.Speed = 87;
+            Console.WriteLine(car.Speed);
+
+            car.Speed = 525023;
+            Console.WriteLine(car.Speed);
+
+            // reg is 123
+            Console.WriteLine(car.Reg);
+            car.Reg = "321"; 
+            Console.WriteLine(car.Reg);
+
+            car.Reg = "3241";
+            Console.WriteLine(car.Reg);
+
+
         }
 
     }

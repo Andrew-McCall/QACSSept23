@@ -10,6 +10,7 @@ namespace ConsoleApp3
     {
 
         // Properties
+        /*
         private int Speed;
 
         // Manual (Custom) implentation
@@ -25,12 +26,39 @@ namespace ConsoleApp3
                 Speed = speed;
             }
         }
+        */
+
+        private int _speed; // Backing Property, which holds the data
+        public int Speed    // Public property which gives shortcut access
+        {
+            get { return _speed; }
+            
+            set { 
+                if (value <= 200 && value >= 0)
+                {
+                    _speed = value;
+                }
+            }
+        }
+
+        private string _reg; 
+        public string Reg
+        {
+            get { return _reg; }
+            set
+            {
+                if (value.Length == 3)
+                {
+                    _reg = value;
+                }
+            }
+        }
 
         // Auto-implentated. 
         public string Model { set; get; }
         public string Make { set; get; }
         // Auto-implentated with setter restrictions
-        public string Reg { protected set; get; }
+        //public string Reg { protected set; get; }
 
         // Constructor
         public Car(string model, string make, string reg)
