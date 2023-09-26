@@ -28,6 +28,7 @@ namespace ConsoleApp3
         }
         */
 
+
         private int _speed; // Backing Property, which holds the data
         public int Speed    // Public property which gives shortcut access
         {
@@ -41,6 +42,7 @@ namespace ConsoleApp3
             }
         }
 
+
         private string _reg; 
         public string Reg
         {
@@ -53,6 +55,7 @@ namespace ConsoleApp3
                 }
             }
         }
+
 
         // Auto-implentated. 
         public string Model { set; get; }

@@ -76,6 +76,8 @@ namespace ConsoleApp3
             car.Reg = "3241";
             Console.WriteLine(car.Reg);
 
+            // Implement all properties of car to be explict
+            // (Make, Model) dont nessciallry need special rules
 
         }
 
