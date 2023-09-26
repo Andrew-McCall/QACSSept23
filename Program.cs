@@ -18,7 +18,6 @@ namespace ConsoleApp3
 
             // Polymorphism
             // - that a object can be many things. e.i a class of its heirarchy
-            // *Override
 
 
             // Pass by Reference  - enums, structs, CLASSES
@@ -68,7 +67,25 @@ namespace ConsoleApp3
             x = 99;
             y = 99;
             IntMaker(x, y);
-            Console.WriteLine(x);
+            Console.WriteLine(x); // 99
+            
+
+            // Vehicle Class
+            // Boat Class - Extends Vehicle
+            // Car Class  - Extends Vehicle
+            // Make two more class that extend car
+            // Make one class that extends boat
+
+            // Create a instance of each class
+            // Try casting/polymorphism
+            // Take note of what you have access to.
+
+            // Have fun, add any behaviour you'd like.
+            // Try anything new that comes to mind
+
+            // EXT
+            // Position struct
+            // each class maniuplate the (vehicle's) position property unquiely
 
         }
 
