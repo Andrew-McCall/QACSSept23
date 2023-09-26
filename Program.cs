@@ -1,84 +1,85 @@
 ﻿
-//using ConsoleApp3; // import everything that is in said namespace
-// this file is in a "top-level namespace"
-
-// Overloading
-// Manual Implentation
-// Private vs Public
-// Main Method
-
-// Typically the name of your project. 
 namespace ConsoleApp3
 {
     public class Program
     {
-        // Default Method/Entry Point
+
         public static void Main(string[] args)
         {
-            /*
-            Console.WriteLine("Hello world");
+            /// OOP Principles
+            // Inhertance    
+            // - Reusing the behaviour of a super class
 
-            Car carOne = new Car("Leaf", "Nissan", "ABC");
+            // Abstraction
+            // - Setting rules on what is accessable (Access Modifiers)
 
-            Console.WriteLine(carOne.Reg);
-            Console.WriteLine(carOne.Speed);
+            // Encapsulation
+            // - Bundling data/behaviour into a class (or struct)
 
-            carOne.Accelerate(7);
-
-            Console.WriteLine(carOne.Speed);
-
-            Car carTwo = new Car("Leaf", "Nissan", "DFE");
-            Car carThree = new Car("F150", "Ford", "123");
-
-            Console.WriteLine(carTwo.Reg);
-            Console.WriteLine(carThree.Reg);
-
-            carThree.Accelerate(451);
-            carThree.Accelerate(124);
-
-            Console.WriteLine(carTwo.Speed);
-            Console.WriteLine(carThree.Speed);
-
-            carThree.EmergencyBrake();
-
-            Console.WriteLine(carThree.Speed);
-
-            Console.WriteLine(carTwo.Accelerate(52));
-            Console.WriteLine(carTwo.Accelerate(532));
-            Console.WriteLine(carTwo.Speed);
-
-            Car carFour = new Car("abc");
-            Console.WriteLine(carFour.Reg);
-            Console.WriteLine(carFour.Make);
-            Console.WriteLine(carFour.Speed);
-            Console.WriteLine(carFour.Model);
-
-            carFour.Accelerate(7);
-            carFour.Accelerate(7.0);
-            carFour.Accelerate(7);
+            // Polymorphism
+            // - that a object can be many things. e.i a class of its heirarchy
+            // *Override
 
 
-            // carFour.Speed = 523;
-            */
+            // Pass by Reference  - enums, structs, CLASSES
+            SunRoofCar src = new("abc");
+            src.Accelerate(10);
+            Console.WriteLine(src.Speed); // 10
 
-            Car car = new Car("123");
-            car.Speed = 87;
-            Console.WriteLine(car.Speed);
+            Car car = src;
+            Console.WriteLine(car.Speed); // 10
+            car.Accelerate(10);
+            Console.WriteLine(car.Speed); // 20
 
-            car.Speed = 525023;
-            Console.WriteLine(car.Speed);
+            src.Accelerate(100);
+            Console.WriteLine(car.Speed); // 120
 
-            // reg is 123
-            Console.WriteLine(car.Reg);
-            car.Reg = "321"; 
-            Console.WriteLine(car.Reg);
+            Console.WriteLine(car == src);
 
-            car.Reg = "3241";
-            Console.WriteLine(car.Reg);
 
-            // Implement all properties of car to be explict
-            // (Make, Model) dont nessciallry need special rules
+            // Pass by Value - bool, char, int, float, 
+            // because these are value types. 
+            // they are cloned when passed
+            int x = 0;
+            int y = x; // y = 0 (not x)
 
+            x += 99;
+            Console.WriteLine(y);  // 0 becase y never changed
+
+            double a = 0;
+            double b = a;
+
+            b += 9.53;
+            Console.WriteLine(a);  // 0
+
+
+            // Pass By Reference TWO
+            Car c = new("123");
+            Car d = c;
+
+            c.Speed = 100;
+            Console.WriteLine(d.Speed); // 100
+
+            CarMaker("ANDREW", d);
+            Console.WriteLine(d.Make); // ANDREW
+            Console.WriteLine(c.Make); // ANDREW
+
+            // Pass by Value TWO
+            x = 99;
+            y = 99;
+            IntMaker(x, y);
+            Console.WriteLine(x);
+
+        }
+
+        public static void CarMaker(string make, Car car)
+        {
+            car.Make = make;
+        }
+
+        public static void IntMaker(int a, int b)
+        {
+            a += b;
         }
 
     }
