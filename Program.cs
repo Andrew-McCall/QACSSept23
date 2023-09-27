@@ -35,7 +35,8 @@ namespace ConsoleApp3
             // static
 
             // ToString Polymorphism
-            Vehicle v1 = new Boat();
+            Vehicle v1 = new Boat(); // Upcasting
+
             // Object.ToString() returns the class name
             System.Console.WriteLine(v1.ToString());
 
@@ -54,6 +55,12 @@ namespace ConsoleApp3
             Console.WriteLine(b2.GetPrice());
             Console.WriteLine(b3.GetPrice());
 
+            // Boat or Car Heirarchy
+            // Override ToString for your classes
+            // Create your own virtual "move"or"getPrice" class for Vehicle
+            // Override it in child classes
+            // Try Sealed. 
+            // Try all the methods, inlude casting (abstraction)
         }
 
     }
