@@ -28,6 +28,11 @@ namespace ConsoleApp3
 
             Console.WriteLine(v4.ID);
 
+            // Use abstract on a class (Makes it uncreatable)
+            // use abstract on a method
+            // create a static id for all vehicles
+            // EXT: make the id a pretty reg string
+
         }
 
     }
