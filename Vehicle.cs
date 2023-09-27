@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3
 {
-    public abstract class Vehicle
+    public abstract class Vehicle: IDrivable
     {
 
         public int ID { get; init; }
@@ -26,5 +26,7 @@ namespace ConsoleApp3
 
         protected abstract decimal TaxCode();
 
+        // this will force all children to make own implmentation
+        public abstract void Drive();
     }
 }

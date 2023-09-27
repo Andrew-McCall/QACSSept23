@@ -7,31 +7,38 @@ namespace ConsoleApp3
         public static void Main(string[] args)
         {
 
-            // Upcasting
-            SailBoat sb = new SailBoat();
-            Boat boat = sb;
-            Vehicle vehicle = sb;
-            Object obj3ct = vehicle;
+            // Vehicle is abstract so can't be created
+            // Vehicle v = new Vehicle();
 
-            //vehicle = new Car("abv");
-            Console.WriteLine(vehicle.ID);
+            Vehicle v1 = new Car("abc");
+            Vehicle v2 = new Boat();
 
-            // DownCasting
-            // might be unsafe
-            // - cause an error if object is not actaully a sailboat
-            SailBoat sb2 = (SailBoat)vehicle; 
+            LawnMower lm = new LawnMower();
 
-            SailBoat? sb3 = vehicle as SailBoat; // will be null if not
+            v1.Drive();
+            v2.Drive();
+            lm.Drive();
 
-            if (sb3 is null)
-            {
-                Console.WriteLine("vehicle was not a boat");
-            }
+            IDrivable d1 = v1; // UpCast
+            IDrivable d2 = v2; // UpCast
+            IDrivable d3 = lm; // UpCast
 
-            if (vehicle is Boat && vehicle is SailBoat && vehicle is Vehicle && vehicle is Object)
-            {
-                Console.WriteLine("vehicle was a boat");
-            }
+            d3.Steer(-5235);
+            // lm.Steer(); - default implmentation is not forced on children
+            // Explict Casting
+            ((IDrivable)lm).Steer(54);
+
+            d3.Drive();
+
+            // IDrivable - int Drive(int distance)
+            // ISteerable - void Left(int degrees), void Right(int degrees)
+            // IFlyable - int Up(int distance), int Down(int distance)
+            // Expand two of the above interfaces. ( e.g IRemoteControl)
+            
+            // Add default implmentation to bool Park()
+            // - you choose which Interface this is for
+
+            // Try using them/Casting included
         }
 
     }

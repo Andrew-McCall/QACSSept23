@@ -83,6 +83,9 @@ namespace ConsoleApp3
             return 0.25m;
         }
 
-
+        public override void Drive()
+        {
+            System.Console.WriteLine("Beep beep");
+        }
     }
 }

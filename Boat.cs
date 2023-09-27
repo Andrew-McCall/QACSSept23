@@ -47,5 +47,10 @@ namespace ConsoleApp3
         {
             return 0.1m;
         }
+
+        public override void Drive()
+        {
+            Console.WriteLine("Splish Spalsh");
+        }
     }
 }
