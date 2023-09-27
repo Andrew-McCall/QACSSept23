@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3
 {
-    public class Car
+    public class Car: Vehicle
     { 
 
         private int _speed; // Backing Property, which holds the data
@@ -43,7 +43,7 @@ namespace ConsoleApp3
         
 
         // Constructor
-        public Car(string model, string make, string reg)
+        public Car(string model, string make, string reg) : base()
         {
             Model = model;
             Make = make;
@@ -52,7 +52,8 @@ namespace ConsoleApp3
         }
 
         // Overloaded 
-        public Car(string reg) {
+        public Car(string reg) : base() 
+        {
             Reg = reg;
             Speed = 0;
             Make = "Nissan";
