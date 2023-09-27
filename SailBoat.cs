@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3
 {
-    public class SailBoat: Boat
+    // No one can inherit / extend this class
+    public sealed class SailBoat: Boat
     {
 
         public SailBoat() : base()

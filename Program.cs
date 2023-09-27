@@ -7,60 +7,27 @@ namespace ConsoleApp3
         public static void Main(string[] args)
         {
 
-            // Vehicle Class
-            // Boat Class - Extends Vehicle
-            // Car Class  - Extends Vehicle
-            // Make two more class that extend car
-            // Make one class that extends boat
 
-            // Create a instance of each class
-            // Try casting/polymorphism
-            // Take note of what you have access to.
+            // Math.Round // dont need state. You dont need an object. Just CODE
 
-            // Have fun, add any behaviour you'd like.
-            // Try anything new that comes to mind
+            Vehicle v1 = new Boat();     // 1
+            Vehicle v2 = new Car("reg"); // 2
+            Vehicle v3 = new SailBoat(); // 3
 
-            // EXT
-            // Position struct
-            // each class maniuplate the (vehicle's) position property unquiely
+            Console.WriteLine(Vehicle.Counter); // 3
 
+            new Boat();                  // 4 - gets deleted
 
-            /// TODAY
-            // virtual
-            // override
-            // sealed
+            Console.WriteLine(Vehicle.Counter); // 4
 
-            // abstract
+            Vehicle v4 = new Boat();     // 5
 
-            // static
+            Console.WriteLine(v1.ID);
+            Console.WriteLine(v2.ID);
+            Console.WriteLine(v3.ID);
 
-            // ToString Polymorphism
-            Vehicle v1 = new Boat(); // Upcasting
+            Console.WriteLine(v4.ID);
 
-            // Object.ToString() returns the class name
-            System.Console.WriteLine(v1.ToString());
-
-            Vehicle v2 = new Boat(false, 50000);
-            System.Console.WriteLine(v2.ToString());
-
-            Object o = v2;
-            System.Console.WriteLine(o.ToString());
-
-
-            Boat b1 = new Boat();
-            Boat b2 = new FishingBoat();
-            Boat b3 = new SailBoat();
-
-            Console.WriteLine(b1.GetPrice());
-            Console.WriteLine(b2.GetPrice());
-            Console.WriteLine(b3.GetPrice());
-
-            // Boat or Car Heirarchy
-            // Override ToString for your classes
-            // Create your own virtual "move"or"getPrice" class for Vehicle
-            // Override it in child classes
-            // Try Sealed. 
-            // Try all the methods, inlude casting (abstraction)
         }
 
     }

@@ -14,6 +14,7 @@ namespace ConsoleApp3
         // Add ? to value types to make them nullable
         public uint? EngineSize { get; set; }
 
+
         public Boat() : base()
         { 
             this.HasSails = true;
@@ -42,5 +43,9 @@ namespace ConsoleApp3
             return 10000_00;
         }
 
+        protected override decimal TaxCode()
+        {
+            return 0.1m;
+        }
     }
 }

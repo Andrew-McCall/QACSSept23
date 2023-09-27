@@ -6,16 +6,25 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3
 {
-    public class Vehicle
+    public abstract class Vehicle
     {
 
-        public Vehicle() { }
+        public int ID { get; init; }
+        public static int Counter = 0;
 
-        // overriding a virtual method. Virtual methods don't have to be overriden
+        public Vehicle() {
+
+            Counter++; // Counter += 1
+            ID = Counter;
+
+        }
+
         public override string? ToString()
         {
             return "Andrew's Vehicle";
         }
+
+        protected abstract decimal TaxCode();
 
     }
 }

@@ -78,6 +78,11 @@ namespace ConsoleApp3
             _speed = 0;
         }
 
+        protected override decimal TaxCode()
+        {
+            return 0.25m;
+        }
+
 
     }
 }
