@@ -28,7 +28,7 @@ namespace ConsoleApp3
                 Console.WriteLine("vehicle was not a boat");
             }
 
-            if (vehicle is Boat)
+            if (vehicle is Boat && vehicle is SailBoat && vehicle is Vehicle && vehicle is Object)
             {
                 Console.WriteLine("vehicle was a boat");
             }
