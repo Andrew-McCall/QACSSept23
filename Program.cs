@@ -7,32 +7,31 @@ namespace ConsoleApp3
         public static void Main(string[] args)
         {
 
+            // Upcasting
+            SailBoat sb = new SailBoat();
+            Boat boat = sb;
+            Vehicle vehicle = sb;
+            Object obj3ct = vehicle;
 
-            // Math.Round // dont need state. You dont need an object. Just CODE
+            //vehicle = new Car("abv");
+            Console.WriteLine(vehicle.ID);
 
-            Vehicle v1 = new Boat();     // 1
-            Vehicle v2 = new Car("reg"); // 2
-            Vehicle v3 = new SailBoat(); // 3
+            // DownCasting
+            // might be unsafe
+            // - cause an error if object is not actaully a sailboat
+            SailBoat sb2 = (SailBoat)vehicle; 
 
-            Console.WriteLine(Vehicle.Counter); // 3
+            SailBoat? sb3 = vehicle as SailBoat; // will be null if not
 
-            new Boat();                  // 4 - gets deleted
+            if (sb3 is null)
+            {
+                Console.WriteLine("vehicle was not a boat");
+            }
 
-            Console.WriteLine(Vehicle.Counter); // 4
-
-            Vehicle v4 = new Boat();     // 5
-
-            Console.WriteLine(v1.ID);
-            Console.WriteLine(v2.ID);
-            Console.WriteLine(v3.ID);
-
-            Console.WriteLine(v4.ID);
-
-            // Use abstract on a class (Makes it uncreatable)
-            // use abstract on a method
-            // create a static id for all vehicles
-            // EXT: make the id a pretty reg string
-
+            if (vehicle is Boat)
+            {
+                Console.WriteLine("vehicle was a boat");
+            }
         }
 
     }
