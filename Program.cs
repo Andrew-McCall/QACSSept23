@@ -12,46 +12,40 @@ namespace ConsoleApp3
             // Exceptions
             // Lambdas - LINQ
 
-            // Garage Class
-            // In the constuctor ask for the array length
-            // Set each slot, ei store a vehicle
-            // print them all (foreach)
-            // find vehicle by id
-            // EXT
-            // use as and is to loop through the vehicles stored and treat each one differently
+            // A list is a class which implements the collection interface
+            // System.Collections.Generic. mihgt need to import via "using" at the top of the file
+            List<int> myNumbers = new List<int>();
+            
+            // You can prepopulate Lists
+            List<Vehicle> g = new List<Vehicle>() { new Car("123"), new Car("333") };
 
-            Garage garage = new(3);
+            myNumbers.Add(52);
+            myNumbers.Add(45325232);
+            myNumbers.Add(33);
+            myNumbers.Add(-4123);
 
-            garage.Store(0, new Boat());
-            new Boat(); // This uses an id, then forgetten
-            garage.Store(1, new Car("REG"));
+            foreach (int no in myNumbers)
+            {
+                Console.WriteLine(no);
+            }
 
-            Console.WriteLine("PRINT ALL");
-            garage.PrintAll();
+            myNumbers[3] = 9999;
+            Console.WriteLine(myNumbers[3]);
 
-            Console.WriteLine($"Get 1: {garage.Get(1)}");
-            Console.WriteLine($"Get 2: {garage.Get(2)}");
-            Console.WriteLine($"Get 3: {garage.Get(3)}");
+            myNumbers.RemoveAt(3); // deletes by index (.Remove deletes by .equals)
+            myNumbers.Sort();
+            foreach (int no in myNumbers)
+            {
+                Console.WriteLine(no);
+            }
 
-            garage.UseAll();
 
-            Console.WriteLine("PRINT ALL");
-            garage.PrintAll();
-
-            garage.AddSlot();
-            garage.AddSlot();
-            garage.AddSlot();
-            garage.AddSlot();
-
-            Console.WriteLine("PRINT ALL");
-            garage.PrintAll();
-
-            garage.StoreVehicle(new SunRoofCar("123"));
-            garage.StoreVehicle(new SunRoofCar("123"));
-            garage.StoreVehicle(new SunRoofCar("123"));
-
-            Console.WriteLine("PRINT ALL");
-            garage.PrintAll();
+            // Refactor Garage to use List<Vehicle>
+            // UseAllDifferently
+            // GetByVehicleId
+            // AddInNextSlot
+            // AddSlot
+            // RemoveSlot
 
         }
 
