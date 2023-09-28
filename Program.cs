@@ -84,6 +84,39 @@ namespace ConsoleApp3
             // Higher oder function. Function that will return a Func for you.
             // e.g GreaterX(5) - x => x > 5 | GreaterX(10) - x => x > 10
 
+            int a = 0;
+            int b = 10;
+
+            try
+            {
+                throw new AndrewException();
+                Console.WriteLine(b / a);
+
+                throw new Exception("error message");
+            }
+            
+            catch (AndrewException ae)
+            {
+                Console.WriteLine(ae);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("eoor");
+            }
+            finally // clean-up disconnecting
+            {
+                Console.WriteLine("Always Run");
+            }
+
+            try
+            {
+                throw new AndrewException();
+            }
+            catch (AndrewException ae)
+            {
+                Console.WriteLine(ae);
+            }
+
         }
 
     }
