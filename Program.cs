@@ -7,39 +7,75 @@ namespace ConsoleApp3
         public static void Main(string[] args)
         {
 
-            // Vehicle is abstract so can't be created
-            // Vehicle v = new Vehicle();
+            // Array (Immuatable)
+            int[] myNumbers = { 1, 2, 3, 4, 5 };
 
-            Vehicle v1 = new Car("abc");
-            Vehicle v2 = new Boat();
+            Console.WriteLine(myNumbers);
+            Console.WriteLine(myNumbers[0]); // Index of an array starts at 0
+            Console.WriteLine(myNumbers[4]);
+            Console.WriteLine(myNumbers[3]);
 
-            LawnMower lm = new LawnMower();
+            myNumbers[0] = -100;
+            Console.WriteLine(myNumbers[0]);
 
-            v1.Drive();
-            v2.Drive();
-            lm.Drive();
+            Boat[] boats = new Boat[10]; // Create an empty arrray of 10 nulls
+            Console.WriteLine(boats[0]);
+            boats[0] = new Boat();
+            Console.WriteLine(boats[0]);
 
-            IDrivable d1 = v1; // UpCast
-            IDrivable d2 = v2; // UpCast
-            IDrivable d3 = lm; // UpCast
+            int[] empty = new int[8]; // eight 0s
 
-            d3.Steer(-5235);
-            // lm.Steer(); - default implmentation is not forced on children
-            // Explict Casting
-            ((IDrivable)lm).Steer(54);
+            // eight slots in an array, each holding another array
+            // Each row can hold different sized arrays
+            int[][] ints = new int[8][];
 
-            d3.Drive();
+            // {[{1,2,3,4,5}],[],[],[],[],[],[],[],[]}
+            // int[0][3] = 4;
 
-            // IDrivable - int Drive(int distance)
-            // ISteerable - void Left(int degrees), void Right(int degrees)
-            // IFlyable - int Up(int distance), int Down(int distance)
-            // Expand two of the above interfaces. ( e.g IRemoteControl)
+            // Fixed Width Mutlidimentional arra
+            // All of the arrays in the first array, have the same length
+            int[,] intt2 = new int[5, 4];
+
+            // {[{0,0,0,0}],[{0,0,0,0}],[{0,0,0,0}],[{0,0,0,0}],[{0,0,0,0}]}
+
+            ints[5] = new int[99];
+
+            Console.WriteLine(ints[5][52]);
+            Console.WriteLine(intt2[3,3]);
+
+            ints[5][52] = 532;
+            intt2[3, 3] = 812312;
+
+            Console.WriteLine(ints[5][52]);
+            Console.WriteLine(intt2[3, 3]);
+
+            Vehicle[] vehicles = new Vehicle[3];
+            vehicles[0] = new Boat();
+            vehicles[1] = new Car("abc");
+            vehicles[2] = new FishingBoat();
+
+            Boat? b = vehicles[0] as Boat;
+            if (b is not null)
+            {
+                Console.WriteLine(b.GetPrice());
+            }
+
             
-            // Add default implmentation to bool Park()
-            // - you choose which Interface this is for
+            foreach (Vehicle v in vehicles)
+            {
+                Console.WriteLine(v.ToString());
+            }
 
-            // Try using them/Casting included
+            /*
+            for (int i = 0, i < vehicles.Length; i++)
+            {
+                Vehicle v = vehicles[i];
+            }
+            */
+
+      
         }
+
 
     }
 }

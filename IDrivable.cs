@@ -22,6 +22,7 @@ namespace ConsoleApp3
             return direction;
         }
 
+        // Abstract and Public by default
         void Drive();
     }
 }
