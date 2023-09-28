@@ -73,6 +73,18 @@ namespace ConsoleApp3
             }
             */
 
+            // TODAY
+            // ArrayLists - Generics
+            // Exceptions
+            // Lambdas - LINQ
+
+            // Garage Class
+            // In the constuctor ask for the array length
+            // Set each slot, ei store a vehicle
+            // print them all (foreach)
+            // find vehicle by id
+            // EXT
+            // use as and is to loop through the vehicles stored and treat each one differently
       
         }
 
