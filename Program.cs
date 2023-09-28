@@ -99,6 +99,9 @@ namespace ConsoleApp3
 
             garage.PrintAll();
 
+            // IComparable<Vehicle> IN Vehicle
+            // IEquatable
+
         }
 
     }
