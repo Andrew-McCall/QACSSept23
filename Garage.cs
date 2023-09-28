@@ -110,5 +110,23 @@ namespace ConsoleApp3
             _vehicles.Add(v);
         }
 
+        public void ForEach(Action<Vehicle> action)
+        {
+            foreach (Vehicle v in _vehicles)
+            {
+                action(v);
+            }
+        }
+
+        public List<Vehicle> FindVehicle(Func<Vehicle, bool> filter)
+        {
+            List<Vehicle> found = new();
+            foreach (Vehicle v in _vehicles)
+            {
+                if (filter(v)) found.Add(v);
+            }
+            return found;
+        }
+
     }
 }

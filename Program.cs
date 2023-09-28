@@ -6,101 +6,83 @@ namespace ConsoleApp3
 
         public static void Main(string[] args)
         {
+            /*
+            Delagtes d = new Delagtes();
+            Func<int, int> myFunc = d.Double;
+            */
 
-            // TODAY
-            // ArrayLists - Generics
-            // Exceptions
-            // Lambdas - LINQ
+            Func<int, int> myFunc = Delagtes.Square;
+            Action<int> myAction = new Delagtes().Display;
 
-            // A list is a class which implements the collection interface
-            // System.Collections.Generic. mihgt need to import via "using" at the top of the file
-            List<int> myNumbers = new List<int>();
+            /*
+            Predicate<string>
+            Func<string, bool>
 
-            // You can prepopulate Lists
-            List<Vehicle> g = new List<Vehicle>() { new Car("123"), new Car("333") };
+            Predicate<Vehicle, string>
+            Func<Vehicle, string, bool>
+            */
 
-            myNumbers.Add(52);
-            myNumbers.Add(45325232);
-            myNumbers.Add(33);
-            myNumbers.Add(-4123);
+            int[] ints = { 12, 8, 7, 6, 4, 5 };
 
-            foreach (int no in myNumbers)
-            {
-                Console.WriteLine(no);
+            foreach (int i in ints)
+            { 
+
+                myAction(i);
+                myAction(myFunc(i));
+                
             }
 
-            myNumbers[3] = 9999;
-            Console.WriteLine(myNumbers[3]);
+            Garage g = new Garage();
+            g.Store(new Car("123")); // 1
+            g.Store(new Boat());     // 2
+            g.Store(new Car("abc")); // 3
+            g.Store(new Car("321")); // 4
+            g.Store(new Boat());     // 5
+            g.Store(new Boat(false, 252343)); // 6
 
-            myNumbers.RemoveAt(3); // deletes by index (.Remove deletes by .equals)
-            myNumbers.Sort();
-            foreach (int no in myNumbers)
+            g.ForEach(Vehicle.Display);
+
+            List<Vehicle> returned = g.FindVehicle(Vehicle.IsIDGreaterThan5);
+
+            foreach (Vehicle v in returned)
             {
-                Console.WriteLine(no);
+                Console.WriteLine($"RETURNED: {v.ToString()}");
             }
 
+            // Lambda - Annoymous function
+            g.ForEach(v => Console.WriteLine(v));
 
-            // Refactor Garage to use List<Vehicle>
-            // UseAllDifferently
-            // GetByVehicleId
-            // AddInNextSlot
-            // AddSlot
-            // RemoveSlot
-
-
-            Dictionary<string, int> words = new Dictionary<string, int>();
-
-            words.Add("One", 1);
-            words.Add("Two", 5);
-            words.Add("Three", 652386);
-
-            // [key] lists use a number index. Dictionarys use the first dataType given 
-            Console.WriteLine(words["Two"]); // 5
-            Console.WriteLine(words["Three"]); // 652386
-
-            foreach (KeyValuePair<string, int> word in words)
+            returned = g.FindVehicle(v => { return v.ID % 2 == 0; });
+            foreach (Vehicle v in returned)
             {
-                Console.WriteLine($"{word.Value} : {word.Key}");
+                Console.WriteLine($"RETURNED: {v.ToString()}");
             }
 
-
-            // It stores unquie data. hashes the object to store it. doesnt have an index
-            HashSet<string> strings= new HashSet<string>();
-            strings.Add("andrew");
-            strings.Add("5224ejhe");
-            strings.Add("andrew");
-            strings.Add("jej523532he");
-            strings.Add("jej523634634532he");
-            strings.Add("24j41`43`");
-
-
-            foreach (string s in strings)
+            returned = g.FindVehicle(v =>
             {
-                Console.WriteLine(s);
+                /*
+                Vehicle? tv = v as Boat;
+                return tv != null;
+                */
+                return v is Boat;
+            });
+
+            foreach (Vehicle v in returned)
+            {
+                Console.WriteLine($"BOATs: {v.ToString()}");
             }
 
-            Garage garage = new Garage();
+            // Add a foreach (void action) to your garage
+            // Add a filter/findVehicles to your garage (List<Vehicle> name (Func<Vehicle, bool>)
 
-            Vehicle v1 = new Boat();
-            Vehicle v2 = new Boat();
-            Vehicle v3 = new SailBoat();
-            Vehicle v4 = new Car("abc");
-            Vehicle v5 = new SunRoofCar("123");
+            // Try using static method as input for ^ loops - Display, IdGreaterThan5
+            // Use Lambdas instead
 
-            garage.Store(v1);
-            garage.Store(v3);
-            garage.Store(v5);
-            garage.Store(v4);
-            garage.Store(v2);
-
-            garage.PrintAll();
-
-            garage.SortById();
-
-            garage.PrintAll();
-
-            // IComparable<Vehicle> IN Vehicle
-            // IEquatable
+            // EXT
+            // Use a class based delgate
+            // Update filter to use Predicate instead
+            // Higher oder function. Function that will return a Func for you.
+            // e.g GreaterX(5) - x => x > 5 | GreaterX(10) - x => x > 10
 
         }
 

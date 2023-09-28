@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,5 +36,16 @@ namespace ConsoleApp3
             if (other == null) return -1;
             return other.ID - this.ID; //other.ID.CompareTo(ID);
         }
+
+        public static void Display(Vehicle v)
+        {
+            Console.WriteLine(v.ToString());
+        }
+
+        public static bool IsIDGreaterThan5(Vehicle v)
+        {
+            return v.ID >= 5;
+        }
+
     }
 }
