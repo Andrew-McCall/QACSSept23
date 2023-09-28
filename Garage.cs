@@ -9,11 +9,11 @@ namespace ConsoleApp3
     public class Garage
     {
 
-        private Vehicle[] _vehicles;
+        private List<Vehicle> _vehicles;
 
-        public Garage(int length)
+        public Garage()
         {
-            _vehicles = new Vehicle[length];
+            _vehicles = new List<Vehicle>();
         }
 
         public Vehicle? Store(int index, Vehicle vehicle)
@@ -25,11 +25,12 @@ namespace ConsoleApp3
 
         public void PrintAll()
         {
+            Console.WriteLine("Print All");
             foreach (Vehicle vehicle in _vehicles)
             {
                 if (vehicle != null)
                 {
-                    Console.WriteLine(vehicle.ToString());
+                    Console.WriteLine($"{vehicle.ID} - {vehicle.ToString()}");
                 }
                 else
                 {
@@ -91,41 +92,22 @@ namespace ConsoleApp3
             }
         }
 
-        public void AddSlot()
-        {
-
-            Vehicle[] prev = _vehicles;
-            _vehicles = new Vehicle[prev.Length + 1];
-
-            for (int i = 0; i< prev.Length; i++)
-            {
-                _vehicles[i] = prev[i];
-            }
-
-        }
-
         public Vehicle? RemoveVehicle(int index)
         {
             Vehicle? prev = _vehicles[index];
-            _vehicles[index] = null;
+            _vehicles.RemoveAt(index); //_vehicles[index] = null;
             return prev;
         }
 
-        public int? StoreVehicle(Vehicle vehicle)
+        public void SortById()
         {
-            int? index = null;
+            _vehicles.Sort();
+            _vehicles.Reverse();
+        }
 
-            for (int i = 0; i < _vehicles.Length; i++)
-            {
-                if (_vehicles[i] is null)
-                {
-                    _vehicles[i] = vehicle;
-                    index = i;
-                    break;
-                }
-            }
-
-            return index;
+        public void Store(Vehicle v)
+        {
+            _vehicles.Add(v);
         }
 
     }
