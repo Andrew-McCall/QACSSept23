@@ -1,100 +1,123 @@
-﻿Console.WriteLine("Hello, hrhrWorld!");
+﻿
+namespace ConsoleApp3
+{
+    public class Program
+    {
 
-// Comment is not ran. This is just text for the developer
-// Console.WriteLine("Hello, hrhrWorld!");
+        public static void Main(string[] args)
+        {
+            /*
+            Delagtes d = new Delagtes();
+            Func<int, int> myFunc = d.Double;
+            */
 
-/* 
-    multilined
-    commenet
- */
+            Func<int, int> myFunc = Delagtes.Square;
+            Action<int> myAction = new Delagtes().Display;
 
-// Variables (mutable data stores)
-// DataType Idtentifer = Value;
+            /*
+            Predicate<string>
+            Func<string, bool>
 
-/// Value Types
-int myNumber = 0; // +-2.1 billion 32bit (signed)
-Console.WriteLine(myNumber);
+            Predicate<Vehicle, string>
+            Func<Vehicle, string, bool>
+            */
 
-long myLong = 0; // +-9 septillion 64bit (signed)
-ulong myULong = 0; // 18 septillion 64bit
-sbyte myByte = -127; // -128 to 127
+            int[] ints = { 12, 8, 7, 6, 4, 5 };
 
-float myFloat = 09.532f;        // 32 bit
-double myDouble = 9532.523d;    // 64 bit
-decimal myDecimal = 9532.523m;  // 128 bit
+            foreach (int i in ints)
+            { 
 
-char myChar = '\0';     // 16 bit unicode
-bool myBoolean = false; // 1 bit
+                myAction(i);
+                myAction(myFunc(i));
+                
+            }
 
-/// ? makes it nullable
-bool? myBool = null;
-myBool = true;          // mutable bool gets changed
+            Garage g = new Garage();
+            g.Store(new Car("123")); // 1
+            g.Store(new Boat());     // 2
+            g.Store(new Car("abc")); // 3
+            g.Store(new Car("321")); // 4
+            g.Store(new Boat());     // 5
+            g.Store(new Boat(false, 252343)); // 6
 
-// .Net API Reference
-System.Int32 myNumberCopy = myNumber; 
+            g.ForEach(Vehicle.Display);
 
+            List<Vehicle> returned = g.FindVehicle(Vehicle.IsIDGreaterThan5);
 
-/// Reference Type
-// Structs, Enums, Class e.g String
-string myString = "HEllo World";
-string myString2 = null;        // All ref types can be null
+            foreach (Vehicle v in returned)
+            {
+                Console.WriteLine($"RETURNED: {v.ToString()}");
+            }
 
-HairColour hairColour = HairColour.Platinum; // Conditional Logic
+            // Lambda - Annoymous function
+            g.ForEach(v => Console.WriteLine(v));
 
-Person andrew = new Person(20, "Andrew");
-// andrew.age = 21;  Read only struct
-Console.WriteLine(andrew.Age);
-Console.WriteLine(andrew.Name);
-Console.WriteLine(andrew.HairColour);
-Console.WriteLine((int) andrew.HairColour);
+            returned = g.FindVehicle(v => { return v.ID % 2 == 0; });
+            foreach (Vehicle v in returned)
+            {
+                Console.WriteLine($"RETURNED: {v.ToString()}");
+            }
 
-// Create 3 efficent variables
-// -523526326269
-// 63.66666636666
-// 0
+            returned = g.FindVehicle(v =>
+            {
+                /*
+                Vehicle? tv = v as Boat;
+                return tv != null;
+                */
+                return v is Boat;
+            });
 
-long one = -523526326269;
-decimal two = 63.66666636666m;
-bool three = false;
+            foreach (Vehicle v in returned)
+            {
+                Console.WriteLine($"BOATs: {v.ToString()}");
+            }
 
-// +, -, *, / The varaibles.
-// Printing the answer.
-// Check the answer to see if its correct.
+            // Add a foreach (void action) to your garage
+            // Add a filter/findVehicles to your garage (List<Vehicle> name (Func<Vehicle, bool>)
 
-// Casting is (DataType). Forces dataType change
-long oneXtwo = (long) (two * one);
-Console.WriteLine(one * two); // double  -33331175948731.61194379154
-Console.WriteLine(oneXtwo);   // long      -33331175948731
+            // Try using static method as input for ^ loops - Display, IdGreaterThan5
+            // Use Lambdas instead
 
-myNumber = 58235;
-long interger = myNumber;
-Console.WriteLine(interger);
+            // EXT
+            // Use a class based delgate
+            // Update filter to use Predicate instead
+            // Higher oder function. Function that will return a Func for you.
+            // e.g GreaterX(5) - x => x > 5 | GreaterX(10) - x => x > 10
 
-// Console.WriteLine(one + (int)three); // Some data types cant be mathed. Char
+            int a = 0;
+            int b = 10;
 
-// Date Struct
-// - DayEnum
-// - MonthEnum
-// - Year number
+            try
+            {
+                throw new AndrewException();
+                Console.WriteLine(b / a);
 
+                throw new Exception("error message");
+            }
+            
+            catch (AndrewException ae)
+            {
+                Console.WriteLine(ae);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("eoor");
+            }
+            finally // clean-up disconnecting
+            {
+                Console.WriteLine("Always Run");
+            }
 
-Date ds = new Date(Day.Second, Month.April, 2023);
-Console.WriteLine(ds);
-Console.WriteLine(ds.Year);
-Console.WriteLine(ds.Month);
-Console.WriteLine(ds.Day);
+            try
+            {
+                throw new AndrewException();
+            }
+            catch (AndrewException ae)
+            {
+                Console.WriteLine(ae);
+            }
 
-// Create the date struct and print it. 
-// Access it's properites
+        }
 
-// Ext
-// BankAccount Struct
-//  - Date Struct
-//  - balance
-//  - account name
-//  - account id
-BankAccount ba = new BankAccount(5235.25, "Savings?!", 432, new Date(Day.Fourth, Month.April, 2002));
-Console.WriteLine(ba.DateCreated.Year);
-Console.WriteLine(ba.DateCreated.Month);
-Console.WriteLine(ba.AccountName);
-Console.WriteLine(ba.Balance);
+    }
+}
